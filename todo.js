@@ -189,7 +189,7 @@ let oncheck=(checkbox,para,container)=>{
         h4.innerText = "To Do " + countTasksIn(taskContainer);
 
             complete.style.visibility="visible";
-            audioplay("myaudio.mp3");
+            audioplay("audios/myaudio.mp3");
             
 
         }
@@ -198,7 +198,7 @@ let oncheck=(checkbox,para,container)=>{
             para.style.textDecoration="none";
             let taskContainer=document.querySelector("#actualtasks");
             taskContainer.appendChild(container);
-            audioplay2("no2.Wav");
+            audioplay2("audios/no2.wav");
 
             complete.innerText = "Complete " + countTasksIn(comptask);
             h4.innerText = "To Do " + countTasksIn(taskContainer);
