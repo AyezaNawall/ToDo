@@ -1,26 +1,26 @@
 # Todo Application
 
-A clean, browser-based todo application built with HTML, CSS, JavaScript, and Bootstrap. This project lets users create, edit, delete, and complete tasks through a simple dark-themed interface with interactive controls and audio feedback.
+A clean, browser-based todo application built with HTML, CSS, JavaScript, and Bootstrap. It helps users add, edit, delete, complete, and restore tasks through a simple dark-themed interface with audio feedback.
 
 ## Overview
 
-This repository contains a lightweight frontend todo app that runs directly in the browser. It does not require a backend, database, or build setup. The application focuses on essential task management actions while keeping the interface minimal, responsive, and easy to use.
+This repository contains a lightweight frontend todo app that runs directly in the browser. It does not require a backend, database, package manager, or build setup. The application focuses on essential task management actions while keeping the project structure organized and easy to understand.
 
-Users can add tasks, track how many tasks are still pending, move completed tasks into a separate completed section, edit existing task text, and confirm deletion before removing a task.
+Users can add tasks, track pending and completed task counts, move tasks between todo and completed sections, edit task text, and confirm before deleting a task.
 
 ## Features
 
-- Add new tasks by typing into the input field and pressing Enter.
-- Edit existing tasks using a Bootstrap modal.
-- Delete tasks with a confirmation modal to prevent accidental removal.
+- Add new tasks by typing in the input field and pressing Enter.
+- Edit existing tasks through a Bootstrap modal.
+- Delete tasks with a confirmation modal.
 - Mark tasks as complete using a checkbox.
 - Move completed tasks into a dedicated completed section.
 - Restore completed tasks back to the todo list by unchecking them.
-- Display live task counts for pending and completed tasks.
+- Show live counts for pending and completed tasks.
 - Play audio feedback when tasks are checked or unchecked.
-- Use a dark user interface with custom focus and button styling.
-- Use Bootstrap components for buttons, lists, forms, and modals.
-- Keep audio files organized inside the `audios` folder.
+- Use a dark interface with custom focus, button, checkbox, and modal styling.
+- Use Bootstrap components for forms, buttons, lists, and modals.
+- Keep styles, scripts, and audio assets organized in separate folders.
 
 ## Technologies Used
 
@@ -29,38 +29,41 @@ Users can add tasks, track how many tasks are still pending, move completed task
 - JavaScript
 - Bootstrap 5
 - Font Awesome CDN
-- Browser Audio API
+- HTML5 Audio API
 
 ## Project Structure
 
 ```text
 application/
-├── audios/
-│   ├── myaudio.mp3
-│   └── no2.wav
-├── readme.md
-├── todo.css
-├── todo.html
-└── todo.js
+|-- assets/
+|   `-- audios/
+|       |-- complete.mp3
+|       `-- uncheck.wav
+|-- css/
+|   `-- style.css
+|-- js/
+|   `-- main.js
+|-- index.html
+`-- README.md
 ```
 
 ## File Description
 
-| File                 | Purpose                                                                                    |
-| -------------------- | ------------------------------------------------------------------------------------------ |
-| `todo.html`          | Main HTML structure for the todo interface and Bootstrap modals.                           |
-| `todo.css`           | Custom styling for the dark layout, task items, buttons, input field, and modals.          |
-| `todo.js`            | Application logic for adding, editing, deleting, completing, counting, and playing sounds. |
-| `audios/myaudio.mp3` | Sound played when a task is marked as complete.                                            |
-| `audios/no2.wav`     | Sound played when a task is moved back to the todo list.                                   |
+| File | Purpose |
+| --- | --- |
+| `index.html` | Main HTML file containing the app layout and Bootstrap modal markup. |
+| `css/style.css` | Custom styling for the dark layout, task list, buttons, input field, checkbox, and modals. |
+| `js/main.js` | JavaScript logic for adding, editing, deleting, completing, counting, and playing sounds. |
+| `assets/audios/complete.mp3` | Sound played when a task is marked as complete. |
+| `assets/audios/uncheck.wav` | Sound played when a completed task is moved back to the todo list. |
 
 ## How to Run
 
 1. Download or clone this repository.
 2. Open the project folder.
-3. Open `todo.html` in any modern web browser.
+3. Open `index.html` in any modern web browser.
 
-No installation, server, or package manager is required.
+No installation or server is required.
 
 ## Usage
 
@@ -72,20 +75,25 @@ No installation, server, or package manager is required.
 6. Click Delete to remove a task after confirmation.
 7. Uncheck a completed task to move it back to the todo list.
 
-## Audio Assets
+## Asset Paths
 
-The app uses local audio files for task status feedback. These files are stored in the `audios` directory and are referenced from `todo.js` using relative paths:
+The app uses local audio files for task feedback. These files are stored in `assets/audios` and referenced from `js/main.js` using relative paths from `index.html`:
 
-Keep the audio files in this folder unless you also update the paths in `todo.js`.
+```js
+audioplay("assets/audios/complete.mp3");
+audioplay2("assets/audios/uncheck.wav");
+```
+
+The stylesheet and script are linked from `index.html` like this:
+
+```html
+<link rel="stylesheet" href="css/style.css">
+<script src="js/main.js"></script>
+```
 
 ## Browser Support
 
-The application works in modern browsers that support standard DOM APIs, Bootstrap 5, and the HTML5 Audio API, including:
-
-- Google Chrome
-- Microsoft Edge
-- Mozilla Firefox
-- Safari
+The application works in modern browsers that support standard DOM APIs, Bootstrap 5, and the HTML5 Audio API, including Chrome, Edge, Firefox, and Safari.
 
 ## Future Improvements
 
